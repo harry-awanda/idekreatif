@@ -4,7 +4,15 @@ session_start();
 if (!isset($_SESSION["username"]) || !isset($_SESSION["role"])) {
     header('location: ../auth/login.php');
 }
+if (isset($_SESSION["user_id"])) {
+  $userId = $_SESSION["user_id"];
+} else {
+  // Handle the case where user_id is not set in the session
+  echo "Error: user_id not set in the session.";
+  exit();
+}
 $username = $_SESSION["username"];
+$name = $_SESSION["name"];
 $role = $_SESSION["role"];
 
 ?>
@@ -45,6 +53,8 @@ $role = $_SESSION["role"];
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <!-- Page CSS -->
+    <!-- Summernote CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css">
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -84,8 +94,8 @@ $role = $_SESSION["role"];
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
-                    <div data-i18n="Basic Inputs">Semua Post</div>
+                  <a href="posts.php" class="menu-link">
+                    <div data-i18n="Basic Inputs">Post Baru</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -129,8 +139,8 @@ $role = $_SESSION["role"];
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">John Doe</span>
-                          <small class="text-muted">Admin</small>
+                          <span class="fw-semibold d-block"><?php echo $name; ?></span>
+                          <small class="text-muted"><?php echo $role; ?></small>
                         </div>
                       </div>
                     </a>

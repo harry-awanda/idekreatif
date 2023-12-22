@@ -38,6 +38,16 @@
     <script src="../assets/js/main.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+    // Fungsi untuk menampilkan toast
+    function showToast(message, type) {
+        var toast = new bootstrap.Toast(document.getElementById('notification-toast'));
+        document.getElementById('toast-message').innerText = message;
+        document.getElementById('toast-container').classList.remove('bg-success', 'bg-danger');
+        document.getElementById('toast-container').classList.add(type);
+        toast.show();
+    }
+</script>
     <?php
     if (isset($_GET["status"]) && $_GET["status"] == "added") {
       echo '<script>
@@ -77,5 +87,23 @@
         }
     });
 </script>
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        // Initialize Summernote
+        $(document).ready(function () {
+            $('#content').summernote({
+                height: 300, // Set the height of the editor
+                placeholder: 'Write your content here...',
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview']],
+                ]
+            });
+        });
+    </script>
   </body>
 </html>
