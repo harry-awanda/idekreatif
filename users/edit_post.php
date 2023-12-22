@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     <div class="col-md-10">
       <div class="card mb-4">
         <div class="card-body">
-          <form method="POST" action="proses_edit_post.php">
+          <form method="POST" action="proses_post.php">
             <input type="hidden" name="post_id" value="<?php echo $postIdToEdit; ?>">
             <div class="mb-3">
               <label for="post_title" class="form-label">Post Title</label>
@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
               <!-- Summernote textarea -->
               <textarea class="form-control" id="content" name="content" required><?php echo $post['content']; ?></textarea>
             </div>
-            <button type="submit" name="simpan" class="btn btn-primary">Update</button>
+            <button type="submit" name="update" class="btn btn-primary">Update</button>
           </form>
         </div>
       </div>

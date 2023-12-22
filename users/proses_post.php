@@ -25,10 +25,44 @@ if (isset($_POST['simpan'])) {
 
   if ($conn->query($query) === TRUE) {
       // Redirect to the post list
-      header("Location: dashboard.php");
+      header('Location: dashboard.php?status=added');
       exit();
   } else {
       echo "Error: " . $query . "<br>" . $conn->error;
   }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $postId = $_POST['post_id'];
+  $postTitle = $_POST["post_title"];
+  $content = $_POST["content"];
+  $categoryId = $_POST["category_id"];
+
+  // Update post in the database
+  $query = "UPDATE posts SET post_title='$postTitle', content='$content', category_id=$categoryId WHERE id_posts=$postId";
+  if ($conn->query($query) === TRUE) {
+    // Panggil fungsi showToast untuk menampilkan notifikasi
+    header('Location: dashboard.php?status=updated');
+    exit();
+} else {
+    echo "Error: " . $query . "<br>" . $conn->error;
+}
+}
+
+if (isset($_GET['post_id'])) {
+  $postId = $_GET['post_id'];
+
+  // Hapus post dari database
+  $queryDelete = "DELETE FROM posts WHERE id_posts = $postId";
+
+  if ($conn->query($queryDelete) === TRUE) {
+      // Redirect kembali ke halaman yang sesuai (misalnya dashboard.php)
+      header('Location: dashboard.php?status=deleted');
+      exit();
+  } else {
+      echo "Error: " . $queryDelete . "<br>" . $conn->error;
+  }
+} else {
+  echo "Post ID not provided.";
 }
 ?>

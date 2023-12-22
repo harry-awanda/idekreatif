@@ -66,11 +66,20 @@ include '.includes/header.php';
               <tr>
                 <td><?= $index++; ?></td>
                 <td><?= $category['category_name']; ?></td>
-                <td class="text-center">
-                  <button type="button" class="view_data btn btn-warning btn-sm" data-toggle="modal" data-target="#editCategoryModal" id="<?= $category['category_id']; ?>" ?>Edit
-                  </button>
-                  <!-- Tombol untuk menampilkan modal konfirmasi hapus kategori -->
-                  <a href="proses_kategori.php?category_id=<?= $category['category_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data?')">Hapus</a>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                      <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a href="#editCategoryModal" id="<?= $category['category_id']; ?>" data-toggle="modal"
+                      class="view_data dropdown-item">
+                        <i class="bx bx-edit-alt me-2"></i> Edit</a>
+                        <a href="proses_kategori.php?category_id=<?= $category['category_id'] ?>"
+                      class="dropdown-item" onclick="return confirm('Apakah Yakin Ingin Menghapus Data?')">
+                        <i class="bx bx-trash me-2"></i> Delete</a>
+                    </div>
+                  </div>
                 </td>
               </tr>
               <?php endwhile; ?>
@@ -138,7 +147,7 @@ include '.includes/header.php';
       $('.view_data').click(function(){
         let categoryID = $(this).attr('id');
         $.ajax({
-          url: '.includes/view.php',
+          url: 'view.php',
           method: 'POST',
           data: {category_id:categoryID},
           success:function(data){
