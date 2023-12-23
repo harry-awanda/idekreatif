@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["name"] = $row["name"];
             $_SESSION["role"] = $row["role"];
             $_SESSION["user_id"] = $row["user_id"];
-            header("location: ../users/dashboard.php");
+            header("location: ../dashboard.php");
         } else {
             echo "Login failed. Invalid password.";
         }
