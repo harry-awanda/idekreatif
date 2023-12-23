@@ -13,9 +13,6 @@
   <link href="assets/blog/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/blog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/blog/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/blog/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/blog/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/blog/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/blog/css/style.css" rel="stylesheet">
 </head>
