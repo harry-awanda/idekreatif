@@ -11,10 +11,14 @@ include '.includes/header.php';
     <div class="col-md-10">
       <div class="card mb-4">
         <div class="card-body">
-          <form method="POST" action="proses_post.php">
+          <form method="POST" action="proses_post.php" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="post_title" class="form-label">Post Title</label>
               <input type="text" class="form-control" id="post_title" name="post_title" required>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload gambar</label>
+              <input class="form-control" type="file" id="image"  name="image" accept="image/*" />
             </div>
             <div class="mb-3">
               <label for="category_id" class="form-label">Category</label>
@@ -24,14 +28,13 @@ include '.includes/header.php';
                 <?php
                 $query = "SELECT * FROM categories";
                 $result = $conn->query($query);
-                
                 if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
-                    }
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
+                  }
                 }
                 ?>
-                </select>
+              </select>
             </div>
             <div class="mb-3">
               <label for="content" class="form-label">Content</label>

@@ -18,10 +18,17 @@ if (isset($_POST['simpan'])) {
   $postTitle = $_POST["post_title"];
   $content = $_POST["content"];
   $categoryId = $_POST["category_id"];
+  
+  // Handle image upload
+  $imageDir = "../assets/img/uploads/"; // Sesuaikan dengan direktori tempat menyimpan gambar
+  $imageName = $_FILES["image"]["name"];
+  $imagePath = $imageDir . $imageName;
+
+  move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
   // Insert new post into the database
-  $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id) 
-            VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId)";
+  $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id,  image_path) 
+            VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
   if ($conn->query($query) === TRUE) {
       // Redirect to the post list
@@ -38,8 +45,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $content = $_POST["content"];
   $categoryId = $_POST["category_id"];
 
+  // Handle image upload
+  $imageDir = "../assets/img/uploads/";
+  $imageName = $_FILES["image"]["name"];
+  $imagePath = $imageDir . $imageName;
+
+  move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
+
   // Update post in the database
-  $query = "UPDATE posts SET post_title='$postTitle', content='$content', category_id=$categoryId WHERE id_posts=$postId";
+  $query = "UPDATE posts SET post_title='$postTitle', content='$content', category_id=$categoryId,  image_path='$imagePath' WHERE id_posts=$postId";
   if ($conn->query($query) === TRUE) {
     // Panggil fungsi showToast untuk menampilkan notifikasi
     header('Location: dashboard.php?status=updated');
