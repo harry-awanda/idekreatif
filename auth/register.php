@@ -1,38 +1,33 @@
 <?php
-  session_start();
+  session_start(); //inisialisasi Session register
+  /*
+  jika user sudah login sesuai dengan username atau role
+  maka akan diarahkan ke URL: dashboard.php
+  */
   if (isset($_SESSION["username"]) || isset($_SESSION["role"])) {
     header('location: ../dashboard.php');
   }
 ?>
 <!DOCTYPE html>
-<html
-  lang="en"
+<html lang="en"
   class="light-style customizer-hide"
   dir="ltr"
   data-theme="theme-default"
   data-assets-path="../assets/"
-  data-template="vertical-menu-template-free"
->
+  data-template="vertical-menu-template-free">
 <head>
-    <meta charset="utf-8" />
-    <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-  />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <title>Daftar &mdash; IdeKreatif</title>
-
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
   <!-- Core CSS -->
   <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="../assets/css/demo.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <!-- Page -->
@@ -44,19 +39,16 @@
   <script src="../assets/js/config.js"></script>
 </head>
 <body>
-
-<!-- Bootstrap Toast -->
-<div id="toast" class="bs-toast toast fade bg-primary position-absolute m-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <!-- Bootstrap Toast -->
+  <div id="toast" class="bs-toast toast fade bg-primary position-absolute m-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <i class="bx bx-bell me-2"></i>
-        <div class="me-auto fw-semibold">Registrasi Berhasil</div>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <i class="bx bx-bell me-2"></i>
+      <div class="me-auto fw-semibold">Registrasi Berhasil</div>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
-        Registrasi akun berhasil!.
-    </div>
-</div>
-<!-- Content -->
+    <div class="toast-body">Registrasi akun berhasil!.</div>
+  </div>
+  <!-- Content -->
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
@@ -67,7 +59,7 @@
             <div class="app-brand justify-content-center">
               <a href="index.html" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo"></span>
-                <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                <span class="app-brand-text demo text-uppercase fw-bolder">IdeKreatif</span>
               </a>
             </div>
             <!-- /Logo -->
@@ -91,43 +83,37 @@
               <button class="btn btn-primary d-grid w-100">Daftar</button>
             </form>
             <p class="text-center">
-              <span>Sudah memiliki akun?</span>
-              <a href="login.php">
-                <span>Masuk</span>
-              </a>
+              <span>Sudah memiliki akun?</span><a href="login.php"><span> Masuk</span></a>
             </p>
-            </div>
+          </div>
         </div>
         <!-- Register Card -->
       </div>
-      </div>
     </div>
-    
-    <!-- / Content -->
-    <!-- Core JS -->
-    <!-- build:js ../assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-  
-    <!-- Vendors JS -->
-  
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-    <!-- Page JS -->
-    <script src="../assets/js/ui-toasts.js"></script>
-    <?php
-if (isset($_GET["success"]) && $_GET["success"] == "true") {
-    echo '<script>
-            $(document).ready(function(){
-                $(".toast").toast("show");
-            });
-          </script>';
-}
-?>
-
+  </div>
+  <!-- / Content -->
+  <!-- Core JS -->
+  <!-- build:js ../assets/vendor/js/core.js -->
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->  
+  <!-- Main JS -->
+  <script src="../assets/js/main.js"></script>
+  <!-- Page JS -->
+  <!-- Jika terdapat parameter success di URL: register.php
+  dan param bernilai true, maka akan memunculkan toast message -->
+  <?php
+  if (isset($_GET["success"]) && $_GET["success"] == "true") {
+    echo 
+    '<script>
+      $(document).ready(function(){
+        $(".toast").toast("show");
+      });
+    </script>';
+  }
+  ?>
   </body>
 </html>

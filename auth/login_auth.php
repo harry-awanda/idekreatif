@@ -1,14 +1,11 @@
 <?php
 session_start();
 require_once("../config.php");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-
     $sql = "SELECT * FROM users WHERE username='$username'";
     $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row["password"])) {
@@ -18,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["user_id"] = $row["user_id"];
             header("location: ../dashboard.php");
         } else {
-            echo "Login failed. Invalid password.";
+            header("Location: login.php?status=false");
         }
     } else {
-        echo "Login failed. Invalid username.";
+        header("Location: login.php?status=false");
     }
 }
 $conn->close();
