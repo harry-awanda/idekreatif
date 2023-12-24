@@ -1,58 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IdeKreatif Blog Website</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 40px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    h2 {
-      color: #3498db;
-    }
-    p {
-      color: #555;
-    }
-    pre {
-      background-color: #ecf0f1;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    code {
-      color: #e74c3c;
-    }
-    ul {
-      list-style-type: none;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    .installation {
-      background-color: #f5f5f5;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-    .contribute {
-      background-color: #f9f9f9;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-    .license {
-      background-color: #f5f5f5;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
 <body>
   <div class="container">
     <h1>IdeKreatif Blog Website</h1>
