@@ -108,7 +108,7 @@ include '.includes/toast_messages.php';
             ></button>
           </div>
           <div class="modal-body" id="datakategori">
-            <!-- form edit data kelas dipisah ke dalam file view.php -->
+            <!-- form edit data kategori dipisah ke dalam file view.php -->
           </div>
         </div>
       </div>

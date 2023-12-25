@@ -34,15 +34,18 @@
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
+    <!-- Toast Bootstrap logic -->
+    <?php include "toast_notification.php" ?>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <!-- Datatables JS -->
     <script src="assets/vendor/libs/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/libs/datatables/dataTables.bootstrap5.min.js"></script>
     <script src="assets/vendor/libs/datatables/datatables.js"></script>
-    <?php include "toast_notification.php" ?>
     <!-- Summernote JS -->
     <script src="assets/vendor/libs/summernote/summernote.min.js" defer></script>
     <script src="assets/vendor/libs/summernote/summernote.js" defer></script>
+    <!-- Active State JS -->
     <script src="assets/js/active-state-nav.js"></script>
 </body>
 </html>
