@@ -21,7 +21,7 @@ include '.includes/blog/header.php';
           $perPage = 5; // Jumlah konten per halaman
           $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
           $start = ($currentPage - 1) * $perPage;
-          $query = "SELECT posts.id_posts, posts.post_title, users.name as user_name, categories.category_name,
+          $query = "SELECT posts.id_post, posts.post_title, users.name as user_name, categories.category_name,
           posts.created_at, posts.image_path, posts.content FROM posts
           INNER JOIN users ON posts.user_id = users.user_id
           LEFT JOIN categories ON posts.category_id = categories.category_id
@@ -56,7 +56,7 @@ include '.includes/blog/header.php';
               ?>
             </p>
             <div class="read-more">
-            <a href="content.php?id_posts=<?= $post['id_posts']; ?>">Read More</a>
+            <a href="content.php?id_post=<?= $post['id_post']; ?>">Read More</a>
             </div>
           </div>
         </article><!-- End blog entry -->

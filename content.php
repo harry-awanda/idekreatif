@@ -3,14 +3,14 @@ include 'config.php';
 include '.includes/blog/header.php';
 
 // Pastikan id_post tersedia dan valid
-if (isset($_GET['id_posts']) && is_numeric($_GET['id_posts'])) {
-  $id_posts = $_GET['id_posts'];
+if (isset($_GET['id_post']) && is_numeric($_GET['id_post'])) {
+  $id_post = $_GET['id_post'];
   // Query untuk mendapatkan data post berdasarkan ID
   // $postQuery = "SELECT * FROM posts WHERE id_posts = $id_posts";
-  $postQuery = "SELECT posts.id_posts, posts.post_title, users.name as user_name, 
+  $postQuery = "SELECT posts.id_post, posts.post_title, users.name as user_name, 
     posts.created_at, posts.image_path, posts.content FROM posts
     INNER JOIN users ON posts.user_id = users.user_id
-    WHERE posts.id_posts = $id_posts";
+    WHERE posts.id_post = $id_post";
   $postResult = mysqli_query($conn, $postQuery);
   // Pastikan post dengan ID tersebut ada
   if (mysqli_num_rows($postResult) > 0) {
