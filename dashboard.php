@@ -3,7 +3,7 @@ include 'config.php';
 include '.includes/header.php';
 
 $title = "Post";
-include '.includes/toast_messages.php';
+include '.includes/toast_notification.php';
 ?>
 
 <div class="container-xxl flex-grow-1 container-p-y">

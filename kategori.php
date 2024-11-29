@@ -1,7 +1,7 @@
 <?php 
 include 'config.php';
 include '.includes/header.php';
-include '.includes/toast_messages.php';
+include '.includes/toast_notification.php';
 
 $title = "Data";
 ?>
@@ -42,9 +42,10 @@ $title = "Data";
                       <i class="bx bx-dots-vertical-rounded"></i>
                     </button>
                     <div class="dropdown-menu">
-                      <a href="#editCategoryModal" id="<?= $category['category_id']; ?>" data-toggle="modal"
-                      class="view_data dropdown-item">
-                        <i class="bx bx-edit-alt me-2"></i> Edit</a>
+                      <a href="#" class="dropdown-item" data-bs-toggle="modal"
+                      data-bs-target="#editCategoryModal_<?= $category['category_id']; ?>">
+                        <i class="bx bx-edit-alt me-2"></i> Edit
+                      </a>
                         <a href="proses_kategori.php?category_id=<?= $category['category_id'] ?>"
                       class="dropdown-item" onclick="return confirm('Apakah Yakin Ingin Menghapus Data?')">
                         <i class="bx bx-trash me-2"></i> Delete</a>
@@ -52,6 +53,33 @@ $title = "Data";
                   </div>
                 </td>
               </tr>
+              <!-- Modal Update Kategori -->
+              <div id="editCategoryModal_<?= $category['category_id']; ?>" 
+                class="modal fade" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Update Data Kategori</h5>
+                      <button type="button" class="btn-close"
+                      data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="datakategori">
+                      <form action="proses_kategori.php" method="POST">
+                        <input type="hidden" name="category_id" value="<?= $category['category_id']; ?>">
+                        <div class="form-group">
+                          <label>Nama Kategori</label>
+                          <input type="text" value="<?= $category['category_name']; ?>"
+                          name="category_name" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                          <button type="submit" name="update" class="btn btn-warning">Update</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <?php endwhile; ?>
             </tbody>
           </table>
@@ -93,37 +121,3 @@ $title = "Data";
         </div>
       </div>
     </div>
-    <!-- Modal Update Kategori -->
-    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel1">Update Data Kategori</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body" id="datakategori">
-            <!-- form edit data kategori dipisah ke dalam file view.php -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      $('.view_data').click(function(){
-        let categoryID = $(this).attr('id');
-        $.ajax({
-          url: 'view.php',
-          method: 'POST',
-          data: {category_id:categoryID},
-          success:function(data){
-            $('#datakategori').html(data)
-            $('#editCategoryModal').modal('show');
-          }
-        })
-      })
-    </script>
