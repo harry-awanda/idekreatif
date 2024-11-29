@@ -59,7 +59,7 @@ unset($_SESSION['notification']); // Hapus notifikasi setelah ditampilkan
         <!-- Menu -->
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="../users/dashboard.php" class="app-brand-link">
+            <a href="./dashboard.php" class="app-brand-link">
               <span class="app-brand-text demo menu-text fw-bolder ms-2 text-uppercase">IdeKreatif</span>
             </a>
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
