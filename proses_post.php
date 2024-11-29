@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Update post in the database
   $query = "UPDATE posts SET post_title='$postTitle',
   content='$content', category_id=$categoryId,  image_path='$imagePath'
-  WHERE id_posts=$postId";
+  WHERE id_post=$postId";
   if ($conn->query($query) === TRUE) {
     // Panggil fungsi showToast untuk menampilkan notifikasi
     header('Location: dashboard.php?status=updated');
@@ -70,7 +70,7 @@ if (isset($_GET['post_id'])) {
   $postId = $_GET['post_id'];
 
   // Hapus post dari database
-  $queryDelete = "DELETE FROM posts WHERE id_posts = $postId";
+  $queryDelete = "DELETE FROM posts WHERE id_post = $postId";
 
   if ($conn->query($queryDelete) === TRUE) {
       // Redirect kembali ke halaman yang sesuai (misalnya dashboard.php)

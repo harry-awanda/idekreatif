@@ -4,7 +4,7 @@ include '.includes/header.php';
 
 // Ambil data post yang akan diedit dari database (gantilah ini dengan metode pengambilan data yang sesuai)
 $postIdToEdit = $_GET['post_id']; // Sesuaikan dengan cara Anda mendapatkan ID post yang akan di-edit
-$query = "SELECT * FROM posts WHERE id_posts = $postIdToEdit";
+$query = "SELECT * FROM posts WHERE id_post = $postIdToEdit";
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {

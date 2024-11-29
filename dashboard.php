@@ -48,10 +48,10 @@ include '.includes/toast_notification.php';
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a href="edit_post.php?post_id=<?php echo $category['id_posts']; ?>"
+                        <a href="edit_post.php?post_id=<?php echo $category['id_post']; ?>"
                         class="dropdown-item">
                           <i class="bx bx-edit-alt me-2"></i> Edit</a>
-                        <a href="proses_post.php?post_id=<?php echo $category['id_posts']; ?>"
+                        <a href="proses_post.php?post_id=<?php echo $category['id_post']; ?>"
                         class="dropdown-item">
                           <i class="bx bx-trash me-2"></i> Delete</a>
                       </div>
