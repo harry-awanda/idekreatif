@@ -1,10 +1,9 @@
 <?php 
 include 'config.php';
 include '.includes/header.php';
-
-$title = "Data";
 include '.includes/toast_messages.php';
 
+$title = "Data";
 ?>
 <div class="container-xxl flex-grow-1 container-p-y">
   <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Kategori</h4>
@@ -27,7 +26,7 @@ include '.includes/toast_messages.php';
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-            <!-- Query untuk membaca data dari tabel Database (webspp) -->
+            <!-- Query untuk membaca data dari tabel Database -->
             <?php 
               $index=1;
               $query = "SELECT * FROM categories";

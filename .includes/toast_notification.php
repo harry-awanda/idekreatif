@@ -1,11 +1,12 @@
 <?php
-  if (isset($_GET["status"]) && $_GET["status"] == "added") {
-    echo '<script>
-        $(document).ready(function(){
-          $("#toastAdd").toast("show");
-        });
-        </script>';
-      }
+if (isset($_GET["status"]) && $_GET["status"] == "added") {
+  echo
+  '<script>
+    $(document).ready(function(){
+      $("#toastAdd").toast("show");
+    });
+  </script>';
+}
   elseif (isset($_GET["status"]) && $_GET["status"] == "updated") {
     echo '<script>
         $(document).ready(function(){

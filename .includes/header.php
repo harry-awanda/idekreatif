@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["role"])) {
-    header('location: ../auth/login.php');
+    header('location: ./auth/login.php');
 }
 if (isset($_SESSION["user_id"])) {
   $userId = $_SESSION["user_id"];
@@ -14,6 +14,9 @@ if (isset($_SESSION["user_id"])) {
 $username = $_SESSION["username"];
 $name = $_SESSION["name"];
 $role = $_SESSION["role"];
+
+$notification = isset($_SESSION['notification']) ? $_SESSION['notification'] : null;
+unset($_SESSION['notification']); // Hapus notifikasi setelah ditampilkan
 
 ?>
 
@@ -37,12 +40,8 @@ $role = $_SESSION["role"];
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
     <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" /> <!--important -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />

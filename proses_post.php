@@ -27,8 +27,9 @@ if (isset($_POST['simpan'])) {
   move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
   // Insert new post into the database
-  $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id,  image_path) 
-            VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
+  $query = "INSERT INTO posts (post_title, content, created_at,
+  category_id, user_id,  image_path) VALUES ('$postTitle',
+  '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
   if ($conn->query($query) === TRUE) {
       // Redirect to the post list
@@ -53,7 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
   // Update post in the database
-  $query = "UPDATE posts SET post_title='$postTitle', content='$content', category_id=$categoryId,  image_path='$imagePath' WHERE id_posts=$postId";
+  $query = "UPDATE posts SET post_title='$postTitle',
+  content='$content', category_id=$categoryId,  image_path='$imagePath'
+  WHERE id_posts=$postId";
   if ($conn->query($query) === TRUE) {
     // Panggil fungsi showToast untuk menampilkan notifikasi
     header('Location: dashboard.php?status=updated');

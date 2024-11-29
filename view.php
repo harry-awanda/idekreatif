@@ -14,7 +14,7 @@ if(isset($_POST['category_id'])) {
       <input type="text" class="form-control" name="category_name" value="<?= $category['category_name'] ?>">
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
       <button type="Submit" name="update" class="btn btn-warning">Update</button>
     </div>
   </form>

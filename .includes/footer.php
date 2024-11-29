@@ -34,8 +34,6 @@
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
-    <!-- Toast Bootstrap logic -->
-    <?php include "toast_notification.php" ?>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <!-- Datatables JS -->
