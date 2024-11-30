@@ -49,11 +49,14 @@ include 'header.php';
           <div class="entry-content">
             <p>
             <?php
-              $content = $post['content'];
-              $words = str_word_count($content, 1); // Memecah teks menjadi array kata
-              $limitedWords = array_slice($words, 0, 30); // Mengambil 30 kata pertama
-              echo implode(' ', $limitedWords); // Menggabungkan kembali array kata menjadi teks
-              ?>
+            $content = $post['content'];
+            // Membatasi kata-kata dengan tag HTML
+            $words = preg_split('/\s+/', strip_tags($content));
+            $limitedWords = array_slice($words, 0, 30);
+            $limitedContent = implode(' ', $limitedWords);
+
+            echo $limitedContent; // Menampilkan kata terbatas tanpa HTML
+            ?>
             </p>
             <div class="read-more">
             <a href="content.php?id_post=<?= $post['id_post']; ?>">Read More</a>

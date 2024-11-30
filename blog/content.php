@@ -51,9 +51,7 @@ if (isset($_GET['id_post']) && is_numeric($_GET['id_post'])) {
             </ul>
           </div>
           <div class="entry-content">
-            <p>
-              <?= $post['content']; ?>
-            </p>
+            <p><?= $post['content']; ?></p>
           </div>
         </article><!-- End blog entry -->
       </div><!-- End blog entries list -->
