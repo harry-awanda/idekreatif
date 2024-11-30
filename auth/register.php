@@ -9,12 +9,7 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../assets/"
-  data-template="vertical-menu-template-free">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -39,15 +34,6 @@
   <script src="../assets/js/config.js"></script>
 </head>
 <body>
-  <!-- Bootstrap Toast -->
-  <div id="toast" class="bs-toast toast fade bg-primary position-absolute m-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <i class="bx bx-bell me-2"></i>
-      <div class="me-auto fw-semibold">Registrasi Berhasil</div>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">Registrasi akun berhasil!.</div>
-  </div>
   <!-- Content -->
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
@@ -95,25 +81,9 @@
   <!-- Core JS -->
   <!-- build:js ../assets/vendor/js/core.js -->
   <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-  <script src="../assets/vendor/libs/popper/popper.js"></script>
-  <script src="../assets/vendor/js/bootstrap.js"></script>
-  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-  <script src="../assets/vendor/js/menu.js"></script>
-  <!-- endbuild -->  
+  <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
   <!-- Main JS -->
   <script src="../assets/js/main.js"></script>
   <!-- Page JS -->
-  <!-- Jika terdapat parameter success di URL: register.php
-  dan param bernilai true, maka akan memunculkan toast message -->
-  <?php
-  if (isset($_GET["success"]) && $_GET["success"] == "true") {
-    echo 
-    '<script>
-      $(document).ready(function(){
-        $(".toast").toast("show");
-      });
-    </script>';
-  }
-  ?>
   </body>
 </html>

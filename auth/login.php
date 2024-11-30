@@ -1,5 +1,5 @@
 <?php
-  session_start(); //inisialisasi Session register
+  session_start(); //inisialisasi Session
   /*
   jika user sudah login sesuai dengan username atau role
   maka akan diarahkan ke URL: dashboard.php
@@ -14,8 +14,7 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
-  data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -31,10 +30,7 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <!-- Page CSS -->
-    <!-- Page -->
     <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
@@ -93,11 +89,7 @@
     <!-- Core JS -->
     <!-- build:js ../assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+    <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
   </body>
