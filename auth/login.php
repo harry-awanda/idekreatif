@@ -7,6 +7,11 @@
   if (isset($_SESSION["username"]) || isset($_SESSION["role"])) {
     header('location: ../dashboard.php');
   }
+  // Ambil notifikasi jika ada, kemudian hapus dari sesi
+  $notification = $_SESSION['notification'] ?? null;
+  if ($notification) {
+    unset($_SESSION['notification']);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
@@ -39,17 +44,7 @@
   </head>
   <body>
     <!-- Content -->
-    <!-- Bootstrap Toast -->
-    <div id="toast" class="bs-toast toast fade bg-primary position-absolute m-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <i class="bx bx-bell me-2"></i>
-        <div class="me-auto fw-semibold">Login Gagal</div>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        Username atau Password salah.
-      </div>
-    </div>
+    <?php include '../.includes/toast_notification.php'; ?>
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
@@ -105,17 +100,5 @@
     <!-- endbuild -->
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
-    <!-- Jika terdapat parameter status di URL: login.php
-    dan param bernilai false, maka akan memunculkan toast message -->
-    <?php
-    if (isset($_GET["status"]) && $_GET["status"] == "false") {
-      echo 
-      '<script>
-        $(document).ready(function(){
-          $(".toast").toast("show");
-        });
-      </script>';
-    }
-    ?>
   </body>
 </html>
