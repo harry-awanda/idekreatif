@@ -33,7 +33,7 @@ include 'header.php';
         ?>
         <article class="entry">
           <div class="entry-img">
-            <img src="<?= $post['image_path']; ?>" alt="" class="img-fluid">
+            <img src="../<?= $post['image_path']; ?>" alt="" class="img-fluid">
           </div>
           <h2 class="entry-title"><a href="#"><?= $post['post_title']; ?></a></h2>
           <div class="entry-meta">
@@ -91,13 +91,13 @@ include 'header.php';
           <div class="sidebar-item recent-posts">
             <?php
               // Query untuk mendapatkan postingan terbaru
-              $recentPostsQuery = "SELECT post_title, created_at FROM posts ORDER BY created_at DESC LIMIT 5";
+              $recentPostsQuery = "SELECT post_title, created_at, image_path FROM posts ORDER BY created_at DESC LIMIT 5";
               $recentPostsResult = mysqli_query($conn, $recentPostsQuery);
               while ($recentPost = mysqli_fetch_assoc($recentPostsResult)) :
             ?>
             <div class="post-item clearfix">
               <!-- Gambar post (gantilah dengan path yang sesuai jika ada) -->
-              <img src="assets/blog/img/blog/blog-recent-1.jpg" alt="">
+              <img src="../<?= $recentPost['image_path']; ?>" alt="">
               <h4><a href="#"><?= $recentPost['post_title']; ?></a></h4>
               <time><?= date('M j, Y', strtotime($recentPost['created_at'])); ?></time>
             </div>
