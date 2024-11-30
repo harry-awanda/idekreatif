@@ -1,11 +1,9 @@
 <?php 
 include 'config.php';
 include '.includes/header.php';
-
-$title = "Post";
 include '.includes/toast_notification.php';
+$title = "Post";
 ?>
-
 <div class="container-xxl flex-grow-1 container-p-y">
   <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard</h4>
   <div class="card">
@@ -16,18 +14,18 @@ include '.includes/toast_notification.php';
       </div>
       <div class="card-body">
         <div class="table-responsive text-nowrap">
-            <table id="datatable" class="table table-hover">
-              <thead>
-                <tr class="text-center">
-                  <th width="50px">#</th>
-                  <th >Judul Post</th>
-                  <th >Penulis</th>
-                  <th >Kategori</th>
-                  <th width="150px">Aksi</th>
-                </tr>
-              </thead>
-              <tbody class="table-border-bottom-0">
-              <!-- Query untuk membaca data dari tabel Database (webspp) -->
+          <table id="datatable" class="table table-hover">
+            <thead>
+              <tr class="text-center">
+                <th width="50px">#</th>
+                <th >Judul Post</th>
+                <th >Penulis</th>
+                <th >Kategori</th>
+                <th width="150px">Aksi</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <!-- Query untuk membaca data dari tabel Database -->
               <?php 
                 $index=1;
                 $query = "SELECT posts.*, users.name as user_name, categories.category_name
@@ -58,16 +56,14 @@ include '.includes/toast_notification.php';
                     </div>
                   </td>
                 </tr>
-                <?php endwhile; ?>
-              </tbody>
-            </table>
-          </div>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <!--/ Hoverable Table rows -->
   </div>
 </div>
-
 <!-- / Content -->
-
 <?php include '.includes/footer.php'; ?>
