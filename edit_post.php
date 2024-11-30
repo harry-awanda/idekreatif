@@ -22,12 +22,22 @@ if ($result->num_rows > 0) {
     <div class="col-md-10">
       <div class="card mb-4">
         <div class="card-body">
-          <form method="POST" action="proses_post.php">
+          <form method="POST" action="proses_post.php" enctype="multipart/form-data">
             <input type="hidden" name="post_id" value="<?php echo $postIdToEdit; ?>">
             <div class="mb-3">
               <label for="post_title" class="form-label">Post Title</label>
               <input type="text" class="form-control" id="post_title" name="post_title" value="<?php echo $post['post_title']; ?>" required>
             </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload Gambar</label>
+              <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*">
+                <?php if (!empty($post['image_path'])): ?>
+                <div class="mt-2">
+                  <img src="<?= $post['image_path']; ?>" 
+                  alt="Current Image" class="img-thumbnail" style="max-width: 200px;">
+                </div>
+                <?php endif; ?>
+              </div>
             <div class="mb-3">
               <label for="category_id" class="form-label">Category</label>
               <select class="form-select" id="category_id" name="category_id" required>

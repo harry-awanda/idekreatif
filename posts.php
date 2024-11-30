@@ -18,7 +18,7 @@ include '.includes/header.php';
             </div>
             <div class="mb-3">
               <label for="formFile" class="form-label">Upload gambar</label>
-              <input class="form-control" type="file" id="image"  name="image" accept="image/*" />
+              <input class="form-control" type="file" id="image" name="image" accept="image/*" />
             </div>
             <div class="mb-3">
               <label for="category_id" class="form-label">Category</label>
