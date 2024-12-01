@@ -1,47 +1,58 @@
 <?php 
+// Menyertakan file konfigurasi database
 include 'config.php';
+// Menyertakan header halaman
 include '.includes/header.php';
 
 ?>
 
 <div class="container-xxl flex-grow-1 container-p-y">
+  <!-- Judul halaman -->
   <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms /</span> Postingan Baru</h4>
   <div class="row">
-    <!-- Form controls -->
+    <!-- Form untuk menambahkan postingan baru -->
     <div class="col-md-10">
       <div class="card mb-4">
         <div class="card-body">
           <form method="POST" action="proses_post.php" enctype="multipart/form-data">
+            <!-- Input untuk judul postingan -->
             <div class="mb-3">
-              <label for="post_title" class="form-label">Post Title</label>
+              <label for="post_title" class="form-label">Judul Postingan</label>
               <input type="text" class="form-control" id="post_title" name="post_title" required>
             </div>
+            
+            <!-- Input untuk mengunggah gambar -->
             <div class="mb-3">
-              <label for="formFile" class="form-label">Upload gambar</label>
+              <label for="formFile" class="form-label">Unggah Gambar</label>
               <input class="form-control" type="file" id="image" name="image" accept="image/*" />
             </div>
+            
+            <!-- Dropdown untuk memilih kategori -->
             <div class="mb-3">
-              <label for="category_id" class="form-label">Category</label>
+              <label for="category_id" class="form-label">Kategori</label>
               <select class="form-select" id="category_id" name="category_id" required>
-                <!-- Fetch categories from the database and populate the options -->
+                <!-- Mengambil data kategori dari database untuk mengisi opsi dropdown -->
                 <option value="" selected disabled>Pilih salah satu</option>
                 <?php
-                $query = "SELECT * FROM categories";
-                $result = $conn->query($query);
-                if ($result->num_rows > 0) {
-                  while ($row = $result->fetch_assoc()) {
+                $query = "SELECT * FROM categories"; // Query untuk mengambil data kategori
+                $result = $conn->query($query); // Menjalankan query
+                if ($result->num_rows > 0) { // Jika terdapat data kategori
+                  while ($row = $result->fetch_assoc()) { // Iterasi setiap kategori
                     echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
                   }
                 }
                 ?>
               </select>
             </div>
+            
+            <!-- Textarea untuk konten postingan -->
             <div class="mb-3">
-              <label for="content" class="form-label">Content</label>
-              <!-- Summernote textarea -->
+              <label for="content" class="form-label">Konten</label>
               <textarea class="form-control" id="content" name="content" required></textarea>
             </div>
-            <button type="submit" name="simpan" class="btn btn-primary">Submit</button>
+            
+            <!-- Tombol submit -->
+            <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
           </form>
         </div>
       </div>
@@ -49,4 +60,7 @@ include '.includes/header.php';
   </div>
 </div>
 
-<?php include '.includes/footer.php'; ?>
+<?php 
+// Menyertakan footer halaman
+include '.includes/footer.php'; 
+?>
