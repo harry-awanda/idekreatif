@@ -1,57 +1,80 @@
 <?php 
+// Memasukkan file konfigurasi database
 include 'config.php';
+
+// Memasukkan file header yang berisi elemen HTML umum
 include '.includes/header.php';
+
+// Memasukkan file notifikasi toast untuk menampilkan pesan
 include '.includes/toast_notification.php';
+
+// Menentukan judul halaman
 $title = "Post";
 ?>
 <div class="container-xxl flex-grow-1 container-p-y">
-  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard</h4>
+  <!-- Header Halaman -->
+  <h4 class="fw-bold py-3 mb-4">
+    <span class="text-muted fw-light">Dashboard</span>
+  </h4>
+  
+  <!-- Card untuk menampilkan tabel postingan -->
   <div class="card">
-    <!-- Hoverable Table rows -->
+    <!-- Tabel dengan baris yang dapat di-hover -->
     <div class="card">
+      <!-- Header Tabel -->
       <div class="card-header d-flex justify-content-between align-items-center">
         <h4>Semua Postingan</h4>
       </div>
       <div class="card-body">
+        <!-- Tabel responsif -->
         <div class="table-responsive text-nowrap">
           <table id="datatable" class="table table-hover">
             <thead>
               <tr class="text-center">
                 <th width="50px">#</th>
-                <th >Judul Post</th>
-                <th >Penulis</th>
-                <th >Kategori</th>
-                <th width="150px">Aksi</th>
+                <th>Judul Post</th>
+                <th>Penulis</th>
+                <th>Kategori</th>
+                <th width="150px">Pilihan</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <!-- Query untuk membaca data dari tabel Database -->
+              <!-- Menampilkan data dari tabel database -->
               <?php 
-                $index=1;
-                $query = "SELECT posts.*, users.name as user_name, categories.category_name
-                FROM posts INNER JOIN users ON posts.user_id = users.user_id
-                LEFT JOIN categories ON posts.category_id = categories.category_id 
-                WHERE posts.user_id = $userId";
-                $exec = mysqli_query($conn,$query);
-                while($category = mysqli_fetch_assoc($exec)) :
+                $index = 1; // Variabel untuk nomor urut
+                // Query untuk mengambil data dari tabel posts, users, dan categories
+                $query = "SELECT posts.*, users.name as user_name,
+                categories.category_name FROM posts INNER JOIN users
+                ON posts.user_id = users.user_id LEFT JOIN categories
+                ON posts.category_id = categories.category_id WHERE
+                posts.user_id = $userId";
+                // Eksekusi query
+                $exec = mysqli_query($conn, $query);
+
+                // Perulangan untuk menampilkan setiap baris hasil query
+                while ($post = mysqli_fetch_assoc($exec)) :
               ?>
                 <tr>
                   <td><?= $index++; ?></td>
-                  <td><?= $category['post_title']; ?></td>
-                  <td><?= $category['user_name']; ?></td>
-                  <td><?= $category['category_name']; ?></td>
+                  <td><?= $post['post_title']; ?></td>
+                  <td><?= $post['user_name']; ?></td>
+                  <td><?= $post['category_name']; ?></td>
                   <td>
                     <div class="dropdown">
+                      <!-- Tombol dropdown untuk Pilihan -->
                       <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
+                      <!-- Menu dropdown -->
                       <div class="dropdown-menu">
-                        <a href="edit_post.php?post_id=<?php echo $category['id_post']; ?>"
-                        class="dropdown-item">
-                          <i class="bx bx-edit-alt me-2"></i> Edit</a>
-                        <a href="proses_post.php?post_id=<?php echo $category['id_post']; ?>"
-                        class="dropdown-item">
-                          <i class="bx bx-trash me-2"></i> Delete</a>
+                        <!-- Pilihan Edit -->
+                        <a href="edit_post.php?post_id=<?= $post['id_post']; ?>" class="dropdown-item">
+                          <i class="bx bx-edit-alt me-2"></i> Edit
+                        </a>
+                        <!-- Pilihan Delete -->
+                        <a href="proses_post.php?post_id=<?= $post['id_post']; ?>" class="dropdown-item">
+                          <i class="bx bx-trash me-2"></i> Delete
+                        </a>
                       </div>
                     </div>
                   </td>
@@ -62,8 +85,12 @@ $title = "Post";
         </div>
       </div>
     </div>
-    <!--/ Hoverable Table rows -->
+    <!-- Akhir tabel dengan baris yang dapat di-hover -->
   </div>
 </div>
-<!-- / Content -->
-<?php include '.includes/footer.php'; ?>
+<!-- Akhir konten -->
+
+<?php 
+// Menambahkan file footer
+include '.includes/footer.php'; 
+?>
