@@ -5,17 +5,6 @@ include 'config.php';
 // Memulai sesi PHP
 session_start();
 
-// Memastikan pengguna telah login dengan memeriksa apakah `user_id` ada di sesi
-if (!isset($_SESSION["user_id"])) {
-  // Jika belum login, simpan notifikasi error ke dalam sesi dan arahkan ke halaman login
-  $_SESSION['notification'] = [
-    'type' => 'danger',
-    'message' => 'Anda harus login terlebih dahulu.'
-  ];
-  header('Location: login.php');
-  exit();
-}
-
 // Mendapatkan ID pengguna dari sesi
 $userId = $_SESSION["user_id"];
 
