@@ -7,9 +7,9 @@
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
-            <span>FlexStart</span>
+            <span>IdeKreatif</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>Aplikasi blog berbasis PHP native yang dirancang untuk memudahkan pengguna dalam membuat dan mengelola konten blog.</p>
           <div class="social-links mt-3">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

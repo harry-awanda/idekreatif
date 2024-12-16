@@ -42,7 +42,7 @@ include 'header.php';
                 <i class="bi bi-person"></i> <a href="#"><?= $post['user_name']; ?></a>
               </li>
               <li class="d-flex align-items-center">
-                <i class="bi bi-clock"></i> <a href="#"><time><?= $post['created_at']; ?></time></a>
+                <i class="bi bi-clock"></i> <a href="#"><time><?php echo date("d-m-Y", strtotime($post['created_at'])); ?></time></a>
               </li>
             </ul>
           </div>

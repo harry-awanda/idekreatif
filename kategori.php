@@ -8,9 +8,6 @@ include '.includes/toast_notification.php';
 ?>
 
 <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- Judul halaman -->
-  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Kategori</h4>
-
   <!-- Tabel data kategori -->
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
@@ -110,7 +107,7 @@ include '.includes/toast_notification.php';
           <div>
             <label for="namaKategori" class="form-label">Nama Kategori</label>
             <!-- Input untuk nama kategori baru -->
-            <input type="text" class="form-control" name="category_name" />
+            <input type="text" class="form-control" name="category_name" required/>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
